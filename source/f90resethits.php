@@ -38,7 +38,7 @@ class plgSystemF90resethits extends JPlugin
 				$('<div id="#toolbar-reset-hits" class="btn-wrapper"><button id="f90-reset-hits" class="btn btn-small"><span class="icon-refresh"></span>Reset Hits</button></div>')
 				.insertAfter('#toolbar-cancel');
 				$('#f90-reset-hits').live('click', function(){
-					if(confirm('Are you sure you want to reset hit counter of this article? This will hits to 0.')){
+					if(confirm('Are you sure you want to reset hit counter of this article? This will set hits to 0.')){
 						$.ajax({
 						       url: "index.php?plg=plg_f90_reset_hits&task=reset_hits&id=<?php echo $id;?>"
 						       }).done(function(data) {
