@@ -32,12 +32,25 @@ class plgSystemF90resethits extends JPlugin
 		
 		$doc = JFactory::getDocument();
 		ob_start();
+			
+		$version = new JVersion();
+		$major  = str_replace('.', '', $version->RELEASE);
+		
+		if($major == '25'){
+			$doc->addScript('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js');
+		}
+
 		?>
 		(function($){
 			$(document).ready(function(){
-				$('<div id="#toolbar-reset-hits" class="btn-wrapper"><button id="f90-reset-hits" class="btn btn-small"><span class="icon-refresh"></span>Reset Hits</button></div>')
-				.insertAfter('#toolbar-cancel');
-				$('#f90-reset-hits').live('click', function(){
+				<?php if($major == '25'):?>
+					$('<li id="toolbar-reset-hits" class="button"><a id="f90-reset-hits" class="toolbar" href="#"><span class="icon-32-purge"> </span>Reset Hits</a></li>')
+					.insertAfter('#toolbar-cancel');
+				<?php else: ?>
+					$('<div id="toolbar-reset-hits" class="btn-wrapper"><button id="f90-reset-hits" class="btn btn-small"><span class="icon-refresh"></span>Reset Hits</button></div>')
+					.insertAfter('#toolbar-cancel');
+				<?php endif; ?>
+				$('#f90-reset-hits').click(function(){
 					if(confirm('Are you sure you want to reset hit counter of this article? This will set hits to 0.')){
 						$.ajax({
 						       url: "index.php?plg=plg_f90_reset_hits&task=reset_hits&id=<?php echo $id;?>"
