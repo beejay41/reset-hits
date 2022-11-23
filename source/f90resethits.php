@@ -95,7 +95,7 @@ class plgSystemF90resethits extends JPlugin
 		$db  = JFactory::getDbo();
 		$db->setQuery($sql);
 
-		if($db->query()){
+		if($db->execute()){
 			echo json_encode(array('error' => false));
 		}
 		else{
