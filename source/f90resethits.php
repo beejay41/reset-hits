@@ -1,7 +1,7 @@
 <?php
 /**
- * @package 	Plugin ResetHits for Joomla! 3.X
- * @version 	0.0.1
+ * @package 	Plugin ResetHits for Joomla! 4.X
+ * @version 	0.0.2
  * @author 	Function90.com
  * @copyright 	C) 2013- Function90.com
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
@@ -17,7 +17,7 @@ class plgSystemF90resethits extends JPlugin
 	public function onBeforeRender()
 	{
 		$app = JFactory::getApplication();	
-		if($app->isSite()){
+		if($app->isClient('site')){
 			return true;
 		}
 
@@ -80,7 +80,7 @@ class plgSystemF90resethits extends JPlugin
 	public function onAfterRoute()
 	{
 		$app = JFactory::getApplication();	
-		if($app->isSite()){
+		if($app->isClient('site')){
 			return true;
 		}
 
