@@ -34,7 +34,7 @@ class plgSystemF90resethits extends JPlugin
 		ob_start();
 			
 		$version = new JVersion();
-		$major  = str_replace('.', '', $version->RELEASE);
+		$major  = $version->MAJOR_VERSION . $version->MINOR_VERSION;
 		
 		if($major == '25'){
 			$doc->addScript('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js');
