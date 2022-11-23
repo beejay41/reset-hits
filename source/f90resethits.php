@@ -46,7 +46,7 @@ class plgSystemF90resethits extends JPlugin
 					$('<li id="toolbar-reset-hits" class="button"><a id="f90-reset-hits" class="toolbar" href="#"><span class="icon-32-purge"> </span>Reset Hits</a></li>')
 					.insertAfter('#toolbar-cancel');
 				<?php else: ?>
-					$('<div id="toolbar-reset-hits" class="btn-wrapper"><button id="f90-reset-hits" class="btn btn-small"><span class="icon-refresh"></span>Reset Hits</button></div>')
+					$('<joomla-toolbar-button id="toolbar-reset-hits" class="btn-wrapper"><button id="f90-reset-hits" class="btn btn-small"><span class="icon-refresh"></span>Reset Hits</button></joomla-toolbar-button>')
 					.insertAfter('#toolbar-cancel');
 				<?php endif; ?>
 				$('#f90-reset-hits').click(function(){
